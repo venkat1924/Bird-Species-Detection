@@ -1,6 +1,6 @@
 import streamlit as st
 import audio.new_audio_main as audio
-from new_image_main import predict_image
+from image.new_image_main import predict_image
 
 # Initialize the audio predictor
 predictor = audio.AudioPredictor()
@@ -15,19 +15,29 @@ uploaded_image = st.file_uploader("Upload an image file:", type=["jpg", "jpeg", 
 
 # Button to trigger prediction
 if st.button("Predict"):
-    if uploaded_audio:
+    if uploaded_audio and uploaded_image:
         # Save the uploaded audio file temporarily
         audio_file_path = f"temp_{uploaded_audio.name}"
         with open(audio_file_path, "wb") as f:
             f.write(uploaded_audio.getbuffer())
 
         # Perform prediction
-        label, score = predictor.predict_single_audio(audio_file_path)
+        label_audio, score_audio = predictor.predict_single_audio(audio_file_path)
+
+        image_file_path = f"temp_{uploaded_image.name}"
+        with open(image_file_path, "wb") as f:
+            f.write(uploaded_image.getbuffer())
+
+        # Perform prediction
+        label_image, score_image = predict_image(image_file_path)
+
 
         # Display results
         st.write(f"# Prediction Result")
-        st.write(f"## Label: **{label}**")
-        #st.write(f"## Score: **{score:.2f}**")
+        st.write(f"## Label: **{label_audio if score_audio>score_image else label_image}**")
+        st.write(f"## Score: **{max(score_image, score_audio)}**")
+        st.write(f'### Audio prediction: ({label_audio},{score_audio})') 
+        st.write(f'### Image prediction: ({label_image}, {score_image})')
 
         # Optionally, clean up the temporary file
         import os
