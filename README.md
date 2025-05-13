@@ -50,8 +50,7 @@ This system serves as a functional prototype for AI-driven ecological studies, s
 
 The system processes audio and image inputs through separate deep learning pipelines. The outputs (predicted species and confidence scores) from each pipeline are then fused to produce a final classification.
 
-![System Architecture Diagram](assets/overallarch.png)
-*(Assuming overallarch.png is placed in an `assets` directory in the repository)*
+![System Architecture Diagram](https://github.com/user-attachments/assets/607a0337-60b3-466a-9e95-8f2299ec07d5)
 
 ## Technology Stack
 
