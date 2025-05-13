@@ -1,5 +1,3 @@
-Okay, here's a comprehensive README.md draft for the GitHub repository based on the provided paper.
-
 # Multimodal Deep Learning for Bird Species Classification
 
 [![Python Version](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
