@@ -1,4 +1,4 @@
-# Multimodal Deep Learning for Bird Species Classification
+# Ears and Eyes on the Sky: Multimodal Deep Learning for Bird Classification
 
 [![Python Version](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 This repository contains the code for the paper: **"Multimodal Deep Learning for Bird Species Classification: An Implementation and Analysis"**. The system implements a multimodal approach, leveraging both audio and visual data, for identifying bird species using deep learning techniques.
